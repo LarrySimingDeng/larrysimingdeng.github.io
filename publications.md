@@ -14,7 +14,7 @@ title: Publications
 
 - [Covariance Ratio under Multiplicative Distortion Measurement Errors](https://www.tandfonline.com/doi/full/10.1080/03610926.2023.2295240)<br>Jiongtao Zhong, **Siming Deng**, Jun Zhang & Zhenghui Feng<br>*Communications in Statistics - Theory and Methods, 2023.* (SCI, 2nd-author)<br>
 
-- [Estimation of Correlation Coefficient with Monotone Transformation and Multiplicative Distortions](https://www.tandfonline.com/doi/full/10.1080/03610926.2023.2288794)<br> Jun Zhang, Xuan Yu, **Siming Deng**, JiongTao Zhong, Yisheng Zhou & Bingqing
+- [Estimation of Correlation Coefficient with Monotone Transformation and Multiplicative Distortions](https://www.tandfonline.com/doi/full/10.1080/03610926.2023.2288794)<br> Jun Zhang, Xuan Yu, **Siming Deng**, Jiongtao Zhong, Yisheng Zhou & Bingqing
  Lin<br>*Communications in Statistics - Theory and Methods, 2023.* (SCI, 3rd-author)<br>
 
 ---
