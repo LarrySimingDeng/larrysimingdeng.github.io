@@ -24,12 +24,13 @@
 
 <style>
 .logo {
-    position: relative;
-    top: 0px;
-    right: 0px;
-    z-index: 1000;
     width: 150px;
     height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 0px; 
+    margin-bottom: 10px;
 }
 </style>
 
@@ -43,7 +44,7 @@
 {% include navigation.html %}
 
 <!-- 添加学校logo图片 -->
-<img src="/images/dukelogo.jpg" class="logo" alt="Your School Logo">
+<img src="/images/dukelogo.jpg" class="logo" alt="Duke University Logo">
 
 {% if page.image.feature %}<div class="image-wrap">
   <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }} feature image" itemprop="primaryImageOfPage">
