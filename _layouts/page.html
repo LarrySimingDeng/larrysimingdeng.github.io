@@ -22,6 +22,17 @@
   gtag('config', 'G-T5N5JY1E21');
 </script>
 
+<style>
+.logo {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    width: 100px;
+    height: auto;
+}
+</style>
+
 </head>
 
 
@@ -30,6 +41,9 @@
 {% include chrome-frame.html %}
 
 {% include navigation.html %}
+
+<!-- 添加学校logo图片 -->
+<img src="/images/guitar.jpg" class="logo" alt="Your School Logo">
 
 {% if page.image.feature %}<div class="image-wrap">
   <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }} feature image" itemprop="primaryImageOfPage">
@@ -60,4 +74,4 @@
 {% include scripts.html %}
 
 </body>
-</html>
+</html>    
