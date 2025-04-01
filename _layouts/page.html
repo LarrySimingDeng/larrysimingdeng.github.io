@@ -23,16 +23,16 @@
 </script>
 
 <style>
-.logo {
-    width: 150px;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
-    margin-top: 0px; 
-    margin-bottom: 10px;
-}
-</style>
+  .logo {
+      /* 移除定位相关属性 */
+      width: 150px;
+      height: auto;
+      /* 新增浮动布局 */
+      float: right;
+      margin: 20px 0 20px 20px; /* 上右下左 */
+      clear: both; /* 防止其他浮动元素干扰 */
+  }
+  </style>
 
 </head>
 
