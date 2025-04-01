@@ -1,6 +1,3 @@
-<!-- Lastly modified by Hanlin CAI in 2023/04/26 -->
-<!-- It is not recommended to modify this code, unless you are a Pro-->
-
 <!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -18,61 +15,104 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-T5N5JY1E21');
 </script>
 
 <style>
-  .logo {
-      /* 移除定位相关属性 */
-      width: 150px;
-      height: auto;
-      /* 新增浮动布局 */
-      float: right;
-      margin: 0px 0 0px 0px; /* 上右下左 */
-      clear: both; /* 防止其他浮动元素干扰 */
+  /* 通用样式 */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: white;
+    flex-wrap: nowrap; /* 禁止换行 */
   }
-  </style>
+
+  /* Logo 样式 */
+  .logo {
+    width: 150px;
+    height: auto;
+    flex-shrink: 0; /* 禁止缩小 */
+    margin-left: 20px;
+  }
+
+  /* 导航栏容器 */
+  .nav-wrapper {
+    flex: 1;
+    min-width: 60%; /* 保证导航栏最小宽度 */
+    overflow-x: auto; /* 小屏允许横向滚动 */
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 10px 15px;
+    }
+    
+    .logo {
+      width: 100px; /* 缩小Logo尺寸 */
+      margin-left: 10px;
+    }
+
+    /* 导航栏项适配 */
+    .nav-wrapper ul {
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+    
+    .nav-wrapper li {
+      font-size: 0.9em; /* 缩小字体 */
+      padding: 0 8px; /* 调整间距 */
+    }
+  }
+
+  /* 超小屏幕适配 */
+  @media (max-width: 480px) {
+    .logo {
+      width: 80px;
+    }
+    .nav-wrapper li {
+      font-size: 0.8em;
+      padding: 0 5px;
+    }
+  }
+</style>
 
 </head>
 
-
 <body class="page" itemscope itemtype="http://schema.org/WebPage">
+  {% include chrome-frame.html %}
 
-{% include chrome-frame.html %}
-
-{% include navigation.html %}
-
-<!-- 添加学校logo图片 -->
-<img src="/images/dukelogo.jpg" class="logo" alt="Duke University Logo">
-
-{% if page.image.feature %}<div class="image-wrap">
-  <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }} feature image" itemprop="primaryImageOfPage">
-</div><!-- /.image-wrap -->{% endif %}
-
-<div id="main" role="main"  itemprop="mainContentOfPage">
-  <div class="article-author-top">
-    {% include author-bio.html %}
+  <div class="header-container">
+    <div class="nav-wrapper">
+      {% include navigation.html %}
+    </div>
+    <img src="/images/dukelogo.jpg" class="logo" alt="Duke University Logo">
   </div>
-  <article itemscope itemtype="http://schema.org/CreativeWork">
-  {% comment %}
-    <div class="headline-wrap">
-      <h1 itemprop="headline">{{ page.title }}</h1>
-    </div><!--/ .headline-wrap -->
-  {% endcomment %}
-    <div class="article-wrap" itemprop="text">
-      {{ content }}
-    </div><!-- /.article-wrap -->
-  </article>
-</div><!-- /#index -->
 
-<div class="footer-wrap">
-  <footer>
-    {% include footer.html %}
-  </footer>
-</div><!-- /.footer-wrap -->
+  <!-- 其他内容保持不变 -->
+  {% if page.image.feature %}<div class="image-wrap">
+    <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }} feature image" itemprop="primaryImageOfPage">
+  </div>{% endif %}
 
-{% include scripts.html %}
+  <div id="main" role="main" itemprop="mainContentOfPage">
+    <div class="article-author-top">
+      {% include author-bio.html %}
+    </div>
+    <article itemscope itemtype="http://schema.org/CreativeWork">
+      <div class="article-wrap" itemprop="text">
+        {{ content }}
+      </div>
+    </article>
+  </div>
 
+  <div class="footer-wrap">
+    <footer>
+      {% include footer.html %}
+    </footer>
+  </div>
+
+  {% include scripts.html %}
 </body>
-</html>    
+</html>
