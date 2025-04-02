@@ -9,7 +9,7 @@ layout: page
 
 Here is **Siming Deng (Larry Deng)**.<br>
 
-I am a graduate student in the [Department of Statistical Science](https://stat.duke.edu/) at **Duke University**.<!-- advised by [Prof. XXX](放教授web，http开头), within [Internet of Everything (IoE) Group](https://ioe.eng.cam.ac.uk/).--> Prior to joining Duke, I gained valuable research experiences as a Research Assistant at Shenzhen University under the supervision of [Dr. Jun Zhang](https://www.researchgate.net/profile/Jun_Zhang93). My work focused on **Nonparametric Statistics**, **Distortion Measurement Error Models**, and **Large Sample Theory**. I developed and analyzed advanced statistical methods, conducted large-scale simulations using R, and applied these techniques to real-world datasets, resulting in four SCI publications.<br>
+I am a graduate student in the [Department of Electrical and Systems Engineering (ESE)](https://www.ese.upenn.edu/) at the [Penn Engineering](https://www.seas.upenn.edu/) of the University of Pennsylvania..<!-- advised by [Prof. XXX](放教授web，http开头), within [Internet of Everything (IoE) Group](https://ioe.eng.cam.ac.uk/).--> Prior to joining Penn, I gained valuable research experiences as a Research Assistant at Shenzhen University under the supervision of [Dr. Jun Zhang](https://www.researchgate.net/profile/Jun_Zhang93). My work focused on **Nonparametric Statistics**, **Distortion Measurement Error Models**, and **Large Sample Theory**. I developed and analyzed advanced statistical methods, conducted large-scale simulations using R, and applied these techniques to real-world datasets, resulting in four SCI publications.<br>
 
 At [the Big Data Institute](https://bdsc.szu.edu.cn/), supervised by Distinguished Professor [Joshua Zhexue Huang](https://dblp.org/pid/h/JoshuaZhexueHuang.html), I carried out optimizations on data processing and clustering algorithms by leveraging distributed approximate computing techniques. At the Bank of China, I was involved in the deployment and fine tuning of large language models. I also utilized the Vue.js framework for front - end development.<br>
 
@@ -32,7 +32,7 @@ My current research focuses on addressing critical challenges in measurement err
 
 ## News and Updates
 
-- **March 2025**: Thrilled to have received an offer from Duke University's Department of Statistical Science!<br>
+- **March 2025**: Thrilled to have received an offer from UPenn Engineering!<br>
 - **August 2024**: First-Author Paper: [**A New Logarithmic Multiplicative Distortion for Correlation Analysis**](https://onlinelibrary.wiley.com/doi/10.1002/sam.11708) Now Officially Published in [Statistical Analysis and Data Mining](https://onlinelibrary.wiley.com/journal/19321872) (JCR Q1)<br>
 
 
