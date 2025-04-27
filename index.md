@@ -21,7 +21,6 @@ If you are interested in any aspect of me, I am always open to discussions and c
 
 ## Research Interests
 
-- Bayesian Statistics
 - Machine Learning
 - Nonparametric Statistics
 
