@@ -86,8 +86,8 @@ h1,h2,h3,h4,h5,h6{color:#333332;}
 .pull-quote:after{content:'”';bottom:0em;right:0em;}
 h1,h2,h3,h4,h5,h6{font-family:'PT Sans Narrow',sans-serif;font-weight:700;}
 h6{font-weight:400;}
-a{text-decoration:none;color:#343434;}a:visited{color:#4e4e4e;}
-a:hover{color:#1a1a1a;}
+a{text-decoration:none;color:#60bef5;}a:visited{color:#4e4e4e;}
+a:hover{color:#008cff;}
 a:focus{outline:thin dotted;color:#343434;}
 a:hover,a:active{outline:0;}
 b,strong{font-weight:700;}
