@@ -20,7 +20,7 @@ I am a graduate student in the Department of [Electrical and Systems Engineering
 - **Software Development Intern** @ Bank of China<br>
   Involved in the deployment and fine-tuning of large language models; utilized Vue.js framework for frontend development.<br>
 
-- **AI/ML Engineer Intern** @ Apple Inc.<br>
+- **Software Engineer Intern** @ Apple Inc.<br>
   Developed AI agent tools for hardware testing, enhancing automated diagnostics workflows and improving large-scale test efficiency.<br>
 
 </div>
