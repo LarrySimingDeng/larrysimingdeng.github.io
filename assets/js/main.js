@@ -1895,8 +1895,50 @@ $(document).ready(function() {
       tError: '<a href="%url%">Image #%curr%</a> could not be loaded.',
     },
     removalDelay: 300, // Delay in milliseconds before popup is removed
-    // Class that is added to body when popup is open. 
+    // Class that is added to body when popup is open.
     // make it unique to apply your CSS animations just to this exact popup
     mainClass: 'mfp-fade'
   });
+});
+
+/* ============================================
+   HOBBY PAGE ENHANCEMENTS
+   ============================================ */
+
+// Scroll Animation Observer for hobby sections
+$(function() {
+  if ('IntersectionObserver' in window) {
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.hobby-section').forEach(section => {
+      observer.observe(section);
+    });
+  } else {
+    // Fallback for browsers without IntersectionObserver support
+    $('.hobby-section').addClass('animate-in');
+  }
+});
+
+// Guitar Image Hover Enhancement
+$(function() {
+  $('.guitar-image-container').hover(
+    function() {
+      $(this).find('img').css('filter', 'brightness(1.05)');
+    },
+    function() {
+      $(this).find('img').css('filter', 'brightness(1)');
+    }
+  );
 });

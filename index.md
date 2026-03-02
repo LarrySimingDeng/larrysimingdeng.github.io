@@ -21,7 +21,7 @@ I am a graduate student in the Department of [Electrical and Systems Engineering
   Involved in the deployment and fine-tuning of large language models; utilized Vue.js framework for frontend development.<br>
 
 - **Software Engineer Intern** @ Apple Inc.<br>
-  Developed AI agent tools for hardware testing, enhancing automated diagnostics workflows and improving large-scale test efficiency.<br>
+  Developed AI agent tools for iPhone hardware testing, enhancing automated diagnostics workflows and improving large-scale test efficiency.<br>
 
 </div>
 
