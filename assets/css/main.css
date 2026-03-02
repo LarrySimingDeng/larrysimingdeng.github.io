@@ -424,7 +424,7 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
 .timeline-section li {
   position: relative;
   padding-left: 2em;
-  padding-bottom: 2em;
+  padding-bottom: 0.5em;
   margin-bottom: 0;
   list-style-type: none;
 }
@@ -432,6 +432,15 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
 /* Remove bottom padding from last item */
 .timeline-section li:last-child {
   padding-bottom: 0;
+}
+
+/* Reduce paragraph spacing within timeline items */
+.timeline-section p {
+  margin-bottom: 0.5em;
+}
+
+.timeline-section li > br {
+  display: none;
 }
 
 /* Timeline dot marker */
@@ -480,7 +489,7 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
   /* Reduce padding on mobile */
   .timeline-section li {
     padding-left: 0;
-    padding-bottom: 1.5em;
+    padding-bottom: 0.5em;
   }
 
   /* Adjust font sizes */

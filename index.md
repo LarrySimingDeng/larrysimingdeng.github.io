@@ -8,7 +8,7 @@ layout: page
 
 Here is **Siming Deng (Larry Deng)**.<br>
 
-I am a graduate student in the Department of [Electrical and Systems Engineering (ESE)](https://www.ese.upenn.edu/) at the [Penn Engineering](https://www.seas.upenn.edu/) of the **University of Pennsylvania**.<!-- advised by [Prof. XXX](放教授web，http开头), within [Internet of Everything (IoE) Group](https://ioe.eng.cam.ac.uk/).--> Prior to joining Penn, I gained valuable research experiences as a Research Assistant at Shenzhen University under the supervision of [Dr. Jun Zhang](https://www.researchgate.net/profile/Jun_Zhang93). My work focused on **Nonparametric Statistics**, **Distortion Measurement Error Models**, and **Large Sample Theory**. I developed and analyzed advanced statistical methods, conducted large-scale simulations using R, and applied these techniques to real-world datasets, resulting in four SCI publications.<br>
+I am a graduate student in the Department of [Electrical and Systems Engineering (ESE)](https://www.ese.upenn.edu/) at the [Penn Engineering](https://www.seas.upenn.edu/) of the **University of Pennsylvania**.<!-- advised by [Prof. XXX](放教授web，http开头), within [Internet of Everything (IoE) Group](https://ioe.eng.cam.ac.uk/).--> Prior to joining Penn, I gained valuable research experiences as a Research Assistant at Shenzhen University under the supervision of [Dr. Jun Zhang](https://www.researchgate.net/profile/Jun_Zhang93). My work focused on **Nonparametric Statistics**, **Distortion Measurement Error Models**, and **Large Sample Theory**. I developed and analyzed advanced statistical methods, conducted large-scale simulations using R, and applied these techniques to real-world datasets, resulting in five SCI publications.<br>
 
 ## Work Experience
 
