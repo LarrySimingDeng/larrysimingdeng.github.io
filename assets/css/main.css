@@ -388,3 +388,123 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
 .mfp-fade.mfp-ready.mfp-bg{opacity:0.8;}
 .mfp-fade.mfp-removing.mfp-bg{opacity:0;}
 @media print{*{background:transparent !important;color:black !important;box-shadow:none !important;text-shadow:none !important;filter:none !important;-ms-filter:none !important;position:static !important;} @page {margin:0.5cm;}h2,h3{orphans:3;widows:3;page-break-after:avoid;} p{orphans:3;widows:3;} pre,blockquote{border:1px solid #333;page-break-inside:avoid;padding:1em;} abbr[title]:after{content:" (" attr(title) ")";} a,a:visited{text-decoration:underline;} a[href]:after{content:" (" attr(href) ")";} a[href^="javascript:"]:after,a[href^="#"]:after{content:"";} img{max-width:100% !important;page-break-inside:avoid;} thead{display:table-header-group;} tr{page-break-inside:avoid;}}@media only screen and (min-width:30em){.image-grid li{width:33.333333%;}}@media only screen and (min-width:37.5em){html{font-size:95%;} .site-name{display:inline;float:left;width:16.666666666666668%;margin-left:4.166666666666667%;margin-right:4.166666666666667%;} .top-navigation{display:inline;float:left;width:75%;margin-left:0%;margin-right:0%;} .image-wrap .headline-wrap,.image-wrap:after{left:25%;} .image-wrap .headline-wrap{margin-left:0;} #main article{display:inline;float:left;width:50%;margin-left:0%;margin-right:0%;} #index{display:inline;float:left;width:50%;margin-left:0%;margin-right:0%;} .footer-wrap footer{display:inline;float:left;width:50%;margin-left:25%;margin-right:25%;} .article-author-top{display:block;display:inline;float:left;width:16.666666666666668%;margin-left:4.166666666666667%;margin-right:4.166666666666667%;} .article-author-bottom{display:none;} .toc{display:block;display:inline;float:left;width:16.666666666666668%;margin-left:4.166666666666667%;margin-right:4.166666666666667%;position:fixed;top:120px;right:0;-webkit-box-shadow:0 0 5px rgba(0, 0, 0, 0.5);-moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.5);box-shadow:0 0 5px rgba(0, 0, 0, 0.5);} .image-grid li{width:25%;} .related-articles{display:inline;float:left;width:50%;margin-left:25%;margin-right:25%;}}@media only screen and (min-width:48em){html{font-size:100%;} .image-grid li{width:20%;}}@media only screen and (min-width:62em){html{font-size:112.5%;} .image-grid li{width:16.666666666%;}}@media only screen and (min-width:86.375em){.site-name{display:inline;float:left;width:12.5%;margin-left:16.666666666666668%;} .top-navigation{display:inline;float:left;width:66.66666666666667%;} .image-wrap:after{left:33.333333333%;} .image-wrap .headline-wrap{margin-left:8.333333333333334%;} #main article{display:inline;float:left;width:37.5%;} #index{display:inline;float:left;width:37.5%;} .related-articles{display:inline;float:left;width:37.5%;margin-left:33.333333333333336%;margin-right:29.166666666666668%;} .footer-wrap footer{display:inline;float:left;width:37.5%;margin-left:33.333333333333336%;margin-right:29.166666666666668%;} .article-author-top{display:inline;float:left;width:12.5%;margin-left:16.666666666666668%;}}@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){}
+
+/* ============================================
+   Work Experience Timeline Styles
+   ============================================ */
+
+/* Timeline container */
+.timeline-section {
+  position: relative;
+  padding-left: 0;
+  margin-top: 1.5em;
+}
+
+/* Timeline vertical line (desktop only) */
+.timeline-section::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  bottom: 0.5em;
+  width: 2px;
+  background: linear-gradient(to bottom,
+    #333332 0%,
+    #333332 95%,
+    transparent 100%);
+}
+
+/* Timeline list items */
+.timeline-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline-section li {
+  position: relative;
+  padding-left: 2em;
+  padding-bottom: 2em;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+/* Remove bottom padding from last item */
+.timeline-section li:last-child {
+  padding-bottom: 0;
+}
+
+/* Timeline dot marker */
+.timeline-section li::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0.4em;
+  width: 12px;
+  height: 12px;
+  background-color: #343434;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #333332;
+  z-index: 1;
+}
+
+/* Hover effect on timeline dot */
+.timeline-section li:hover::before {
+  background-color: #1a1a1a;
+  box-shadow: 0 0 0 3px #1a1a1a;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Job title styling */
+.timeline-section li strong {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #333332;
+}
+
+/* Responsive: Mobile devices (≤480px) */
+@media only screen and (max-width: 480px) {
+  /* Remove timeline line on mobile */
+  .timeline-section::before {
+    display: none;
+  }
+
+  /* Remove timeline dots on mobile */
+  .timeline-section li::before {
+    display: none;
+  }
+
+  /* Reduce padding on mobile */
+  .timeline-section li {
+    padding-left: 0;
+    padding-bottom: 1.5em;
+  }
+
+  /* Adjust font sizes */
+  .timeline-section li strong {
+    font-size: 1em;
+  }
+}
+
+/* Responsive: Tablet devices (481px-768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .timeline-section li {
+    padding-left: 1.5em;
+  }
+
+  .timeline-section li::before {
+    left: -4px;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Responsive: Desktop (≥1100px) - enhanced spacing */
+@media only screen and (min-width: 1100px) {
+  .timeline-section li {
+    padding-left: 2.5em;
+  }
+}
