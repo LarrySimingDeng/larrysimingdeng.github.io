@@ -1878,26 +1878,55 @@ $(function() {
   });
 });
 
-// Add lightbox class to all image links
-$("a[href$='.jpg'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
+// Add lightbox class to all image links - ONLY on desktop
+if (window.innerWidth > 480) {
+  $("a[href$='.jpg'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
+}
 
-// Magnific-Popup options
+// Magnific-Popup options - completely disabled on mobile
 $(document).ready(function() {
-  $('.image-popup').magnificPopup({
-    type: 'image',
-    tLoading: 'Loading image #%curr%...',
-    gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-    },
-    image: {
-      tError: '<a href="%url%">Image #%curr%</a> could not be loaded.',
-    },
-    removalDelay: 300, // Delay in milliseconds before popup is removed
-    // Class that is added to body when popup is open.
-    // make it unique to apply your CSS animations just to this exact popup
-    mainClass: 'mfp-fade'
+  // Check if mobile device (screen width <= 480px)
+  function isMobile() {
+    return window.innerWidth <= 480 || $(window).width() <= 480;
+  }
+
+  // FIRST: Block all clicks on mobile BEFORE anything else
+  if (isMobile()) {
+    // Remove image-popup class from all links on mobile
+    $('.image-popup').removeClass('image-popup').addClass('image-no-popup');
+
+    // Block any clicks on image links
+    $('a[href$=".jpg"], a[href$=".png"], a[href$=".gif"]').on('click touchstart', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      return false;
+    });
+  } else {
+    // Only initialize lightbox on desktop
+    $('.image-popup').magnificPopup({
+      type: 'image',
+      tLoading: 'Loading image #%curr%...',
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+      },
+      image: {
+        tError: '<a href="%url%">Image #%curr%</a> could not be loaded.',
+      },
+      removalDelay: 300, // Delay in milliseconds before popup is removed
+      // Class that is added to body when popup is open.
+      // make it unique to apply your CSS animations just to this exact popup
+      mainClass: 'mfp-fade'
+    });
+  }
+
+  // Handle window resize - disable lightbox if resized to mobile
+  $(window).on('resize', function() {
+    if (isMobile()) {
+      $.magnificPopup.close();
+    }
   });
 });
 

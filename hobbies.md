@@ -31,6 +31,34 @@ title: Beyond Research
 
 </div>
 
+<div class="hobby-section cooking-section" markdown="1">
+
+## Possibly the World's Best Amateur Chef
+
+From traditional dishes to fusion experiments, every meal is an opportunity to create, taste, and share.
+
+<div class="cooking-gallery">
+  <div class="cooking-featured">
+    <a href="/images/Dish1.jpg" class="image-popup">
+      <img src="/images/Dish1.jpg" alt="Siming's signature dish">
+    </a>
+  </div>
+  <div class="cooking-grid">
+    <div class="cooking-item">
+      <a href="/images/Dish2.jpg" class="image-popup">
+        <img src="/images/Dish2.jpg" alt="Homemade meal by Siming">
+      </a>
+    </div>
+    <div class="cooking-item">
+      <a href="/images/Dish3.jpg" class="image-popup">
+        <img src="/images/Dish3.jpg" alt="Culinary creation by Siming">
+      </a>
+    </div>
+  </div>
+</div>
+
+</div>
+
 <div class="hobby-section" markdown="1">
 
 ## Passion for the Blues: My Guitar Journey
@@ -56,6 +84,7 @@ My musical heroes are legends who pioneered the genre: <span class="artist-name"
 </div>
 
 </div>
+
 <!-- ## Chat with me -->
 
 <!-- **Jan 2023:** I have set up the [online-coffee-time](https://calendly.com/lancecai/meet-with-lance) (Inspired by [Shangzhe Wu](https://elliottwu.com/)). Welcome to chat with me! -->

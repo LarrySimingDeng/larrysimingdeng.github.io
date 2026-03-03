@@ -588,6 +588,86 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
   margin: 1.2em 0 0 0;
 }
 
+/* Personal Photos Gallery - Asymmetric Layout */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.5em;
+  margin: 1.2em 0 0 0;
+  min-height: 500px;
+}
+
+.photo-featured {
+  grid-row: 1 / 3;
+  grid-column: 1;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out 0.1s backwards;
+}
+
+.photo-featured:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.photo-featured img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photo-featured:hover img {
+  transform: scale(1.03);
+}
+
+.photo-grid {
+  display: contents;
+}
+
+.photo-item {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.photo-item:nth-child(1) {
+  grid-row: 1;
+  grid-column: 2;
+  animation-delay: 0.2s;
+}
+
+.photo-item:nth-child(2) {
+  grid-row: 2;
+  grid-column: 2;
+  animation-delay: 0.3s;
+}
+
+.photo-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photo-item:hover img {
+  transform: scale(1.03);
+}
+
 .image-container {
   position: relative;
   border-radius: 4px;
@@ -703,6 +783,106 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
   transform: scale(1.02);
 }
 
+/* ============================================
+   COOKING SECTION - Asymmetric Editorial Layout
+   ============================================ */
+
+.cooking-section {
+  margin-top: 4em;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.cooking-section h2::before {
+  content: '🍳 ';
+  margin-right: 0.5em;
+}
+
+.cooking-section p {
+  max-width: 750px;
+  margin: 0 auto 2em;
+  line-height: 1.8;
+}
+
+/* Asymmetric Gallery Layout - Desktop */
+.cooking-gallery {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.5em;
+  margin: 2em 0;
+  min-height: 500px;
+}
+
+.cooking-featured {
+  grid-row: 1 / 3;
+  grid-column: 1;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out 0.1s backwards;
+}
+
+.cooking-featured:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.cooking-featured img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cooking-featured:hover img {
+  transform: scale(1.05);
+}
+
+.cooking-grid {
+  display: contents;
+}
+
+.cooking-item {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.cooking-item:nth-child(1) {
+  grid-row: 1;
+  grid-column: 2;
+  animation-delay: 0.2s;
+}
+
+.cooking-item:nth-child(2) {
+  grid-row: 2;
+  grid-column: 2;
+  animation-delay: 0.3s;
+}
+
+.cooking-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.cooking-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cooking-item:hover img {
+  transform: scale(1.04);
+}
+
 /* Typography Enhancements */
 .artist-name {
   font-family: "PT Sans Narrow", sans-serif;
@@ -777,47 +957,282 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
   }
 }
 
-/* Responsive: Mobile (≤480px) */
+/* Responsive: Mobile (≤480px) - Optimized for vertical scroll */
 @media only screen and (max-width: 480px) {
-  .third {
-    grid-template-columns: 1fr;
-    gap: 1em;
+
+  /* Compact section spacing for less scrolling */
+  .hobby-section {
+    margin-bottom: 2em;
   }
 
-  .hobby-section {
+  .hobby-section:first-of-type {
     margin-bottom: 2.5em;
   }
 
+  .hobby-section:nth-of-type(2) {
+    margin-bottom: 1em;
+  }
+
+  /* Typography optimized for mobile */
   .hobby-section h2 {
-    text-align: center;
+    font-size: 1.5em;
+    text-align: left;
     padding-left: 0;
+    margin-bottom: 1em;
+    line-height: 1.3;
   }
 
   .hobby-section h2::before {
     display: inline;
   }
 
-  /* Make captions always visible on mobile */
+  /* Paragraphs - tighter for mobile */
+  .hobby-section p {
+    font-size: 0.95em;
+    line-height: 1.7;
+    margin-bottom: 1em;
+  }
+
+  /* Single column image grid with optimal spacing */
+  .third {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    margin: 1em 0 0 0;
+  }
+
+  /* Personal Photos Gallery - Mobile Vertical Stack */
+  .photo-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    margin: 1em 0 0 0;
+    min-height: auto;
+  }
+
+  .photo-featured {
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .photo-featured:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .photo-featured:hover img {
+    transform: none;
+  }
+
+  .photo-featured img {
+    aspect-ratio: 3/4;
+  }
+
+  .photo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  .photo-item {
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .photo-item:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .photo-item:hover img {
+    transform: none;
+  }
+
+  .photo-item img {
+    aspect-ratio: 3/4;
+  }
+
+  /* Disable photo lightbox on mobile */
+  .photo-featured a,
+  .photo-item a {
+    cursor: default !important;
+    pointer-events: none !important;
+  }
+
+  .photo-featured img,
+  .photo-item img {
+    cursor: default !important;
+  }
+
+  /* Image containers - larger, more impactful on mobile */
+  .image-container {
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Remove hover effects on mobile (not applicable) */
+  .image-container:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .image-container:hover img {
+    transform: none;
+  }
+
+  /* COMPLETELY disable lightbox links on mobile */
+  .image-container a,
+  .image-container a.image-popup {
+    cursor: default !important;
+    pointer-events: none !important;
+    text-decoration: none !important;
+  }
+
+  .image-container img {
+    cursor: default !important;
+  }
+
+  /* Captions - clean static display on mobile */
   .image-caption {
     position: static;
     transform: translateY(0);
-    background: #f5f5f5;
+    background: #f8f8f8;
     color: #333332;
-    padding: 1em;
-    border-radius: 0 0 8px 8px;
+    padding: 0.9em 1.1em;
+    border-radius: 0 0 6px 6px;
+    margin-top: -4px;
   }
 
   .caption-title {
     color: #343434;
+    font-size: 0.95em;
+    font-weight: bold;
   }
 
-  .guitar-showcase {
-    padding: 1.5em;
-  }
-
+  /* Quote - compact and centered */
   .hobby-quote {
-    padding: 0.8em 1em;
-    margin: 1.5em 0;
+    font-size: 1.05em;
+    padding: 0 1.5em;
+    margin: 1.8em auto 0;
+    max-width: 100%;
+  }
+
+  .hobby-quote::before,
+  .hobby-quote::after {
+    font-size: 2.5em;
+  }
+
+  /* Guitar showcase - streamlined */
+  .guitar-showcase {
+    padding: 1.5em 0;
+    margin-bottom: 1em;
+  }
+
+  .guitar-tagline {
+    font-size: 1em;
+    margin-bottom: 1.2em;
+    padding: 0 1em;
+  }
+
+  .guitar-image-container {
+    border-radius: 6px;
+  }
+
+  /* COMPLETELY disable guitar image lightbox on mobile */
+  .guitar-image-container a,
+  .guitar-image-container a.image-popup {
+    cursor: default !important;
+    pointer-events: none !important;
+    text-decoration: none !important;
+  }
+
+  .guitar-image-container img {
+    cursor: default !important;
+  }
+
+  .guitar-image-container:hover {
+    transform: none;
+  }
+
+  .guitar-image-container:hover img {
+    transform: none;
+  }
+
+  /* Artist names - slightly smaller on mobile */
+  .artist-name {
+    font-size: 0.98em;
+  }
+
+  /* Cooking Section - Mobile Optimized Vertical Stack */
+  .cooking-section {
+    margin-top: 2.5em;
+  }
+
+  .cooking-section p {
+    font-size: 0.95em;
+    margin-bottom: 1.5em;
+    padding: 0;
+  }
+
+  /* Single column layout for mobile */
+  .cooking-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    margin: 1.5em 0 0 0;
+  }
+
+  /* Featured image - larger on mobile */
+  .cooking-featured {
+    border-radius: 6px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+  }
+
+  .cooking-featured:hover {
+    transform: none;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+  }
+
+  .cooking-featured:hover img {
+    transform: none;
+  }
+
+  .cooking-featured img {
+    aspect-ratio: 16/9;
+  }
+
+  /* Grid items - compact on mobile */
+  .cooking-grid {
+    gap: 1.2em;
+  }
+
+  .cooking-item {
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .cooking-item:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .cooking-item:hover img {
+    transform: none;
+  }
+
+  .cooking-item img {
+    aspect-ratio: 16/9;
+  }
+
+  /* Disable cooking image lightbox on mobile */
+  .cooking-featured a,
+  .cooking-item a {
+    cursor: default !important;
+    pointer-events: none !important;
+  }
+
+  .cooking-featured img,
+  .cooking-item img {
+    cursor: default !important;
   }
 }
 
@@ -825,16 +1240,29 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
 @media (prefers-reduced-motion: reduce) {
   .image-container,
   .hobby-section,
-  .guitar-showcase {
+  .guitar-showcase,
+  .cooking-section,
+  .cooking-featured,
+  .cooking-item,
+  .photo-featured,
+  .photo-item {
     animation: none;
   }
 
   .image-container:hover,
-  .guitar-image-container:hover {
+  .guitar-image-container:hover,
+  .cooking-featured:hover,
+  .cooking-item:hover,
+  .photo-featured:hover,
+  .photo-item:hover {
     transform: none;
   }
 
-  .image-container:hover img {
+  .image-container:hover img,
+  .cooking-featured:hover img,
+  .cooking-item:hover img,
+  .photo-featured:hover img,
+  .photo-item:hover img {
     transform: none;
   }
 }
