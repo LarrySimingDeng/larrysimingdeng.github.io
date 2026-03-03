@@ -797,10 +797,19 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
   margin-right: 0.5em;
 }
 
-.cooking-section p {
-  max-width: 750px;
+.cooking-section p,
+.cooking-text-card {
+  max-width: 500px;
   margin: 0 auto 2em;
-  line-height: 1.8;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #fafafa, #ffffff);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-style: italic;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #666;
 }
 
 /* Asymmetric Gallery Layout - Desktop */
@@ -957,282 +966,255 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
   }
 }
 
-/* Responsive: Mobile (≤480px) - Optimized for vertical scroll */
+/* Responsive: Mobile (≤480px) - Pinterest-Style Masonry Board */
 @media only screen and (max-width: 480px) {
 
-  /* Compact section spacing for less scrolling */
-  .hobby-section {
-    margin-bottom: 2em;
-  }
-
-  .hobby-section:first-of-type {
-    margin-bottom: 2.5em;
-  }
-
-  .hobby-section:nth-of-type(2) {
-    margin-bottom: 1em;
-  }
-
-  /* Typography optimized for mobile */
-  .hobby-section h2 {
-    font-size: 1.5em;
-    text-align: left;
-    padding-left: 0;
-    margin-bottom: 1em;
-    line-height: 1.3;
-  }
-
-  .hobby-section h2::before {
-    display: inline;
-  }
-
-  /* Paragraphs - tighter for mobile */
-  .hobby-section p {
-    font-size: 0.95em;
-    line-height: 1.7;
-    margin-bottom: 1em;
-  }
-
-  /* Single column image grid with optimal spacing */
-  .third {
-    grid-template-columns: 1fr;
-    gap: 1.5em;
-    margin: 1em 0 0 0;
-  }
-
-  /* Personal Photos Gallery - Mobile Vertical Stack */
-  .photo-gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-    margin: 1em 0 0 0;
-    min-height: auto;
-  }
-
-  .photo-featured {
-    border-radius: 6px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .photo-featured:hover {
-    transform: none;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .photo-featured:hover img {
-    transform: none;
-  }
-
-  .photo-featured img {
-    aspect-ratio: 3/4;
-  }
-
-  .photo-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-  }
-
-  .photo-item {
-    border-radius: 6px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .photo-item:hover {
-    transform: none;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .photo-item:hover img {
-    transform: none;
-  }
-
-  .photo-item img {
-    aspect-ratio: 3/4;
-  }
-
-  /* Disable photo lightbox on mobile */
-  .photo-featured a,
-  .photo-item a {
-    cursor: default !important;
-    pointer-events: none !important;
-  }
-
-  .photo-featured img,
-  .photo-item img {
-    cursor: default !important;
-  }
-
-  /* Image containers - larger, more impactful on mobile */
-  .image-container {
-    border-radius: 6px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Remove hover effects on mobile (not applicable) */
-  .image-container:hover {
-    transform: none;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .image-container:hover img {
-    transform: none;
-  }
-
-  /* COMPLETELY disable lightbox links on mobile */
-  .image-container a,
-  .image-container a.image-popup {
-    cursor: default !important;
-    pointer-events: none !important;
-    text-decoration: none !important;
-  }
-
-  .image-container img {
-    cursor: default !important;
-  }
-
-  /* Captions - clean static display on mobile */
-  .image-caption {
-    position: static;
-    transform: translateY(0);
-    background: #f8f8f8;
-    color: #333332;
-    padding: 0.9em 1.1em;
-    border-radius: 0 0 6px 6px;
-    margin-top: -4px;
-  }
-
-  .caption-title {
-    color: #343434;
-    font-size: 0.95em;
-    font-weight: bold;
-  }
-
-  /* Quote - compact and centered */
-  .hobby-quote {
-    font-size: 1.05em;
-    padding: 0 1.5em;
-    margin: 1.8em auto 0;
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    overflow-x: hidden;
     max-width: 100%;
+  }
+
+  body {
+    width: 100%;
+  }
+
+  /* Ensure navigation doesn't cause overflow */
+  .header-container,
+  .navigation-wrapper,
+  .top-navigation,
+  #main {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* ONLY apply Pinterest to Beyond Research page with unique wrapper */
+  .hobbies-pinterest-container {
+    column-count: 2;
+    column-gap: 12px;
+    padding: 0 8px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .hobbies-pinterest-container .hobby-section {
+    display: contents;
+  }
+
+  /* Hide section headers on mobile - Pinterest style */
+  .hobbies-pinterest-container .hobby-section h2 {
+    display: none;
+  }
+
+  /* Ensure all images and content fit within columns */
+  .hobbies-pinterest-container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hobbies-pinterest-container * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* All content becomes Pinterest cards */
+  .hobby-section:first-of-type,
+  .hobby-section:nth-of-type(2) {
+    margin-bottom: 0;
+  }
+
+  /* Hide Blues Guitar verbose paragraphs - too much text */
+  .hobby-section:nth-of-type(3) p {
+    display: none;
+  }
+
+  /* Cooking text - COMPACT quote-style card */
+  .cooking-text-card {
+    display: block !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px 16px;
+    margin-bottom: 20px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.8em;
+    line-height: 1.4;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    max-width: 100%;
+  }
+
+  /* Quote card - elegant and centered */
+  .hobby-quote {
+    display: block;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    background: linear-gradient(135deg, #fafafa, #ffffff);
+    border-radius: 16px;
+    padding: 24px 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    font-size: 0.85em;
+    line-height: 1.5;
+    text-align: center;
+    border-left: none;
+    max-width: 100%;
+    font-style: italic;
+    color: #555;
   }
 
   .hobby-quote::before,
   .hobby-quote::after {
-    font-size: 2.5em;
+    display: none;
   }
 
-  /* Guitar showcase - streamlined */
-  .guitar-showcase {
-    padding: 1.5em 0;
-    margin-bottom: 1em;
-  }
-
+  /* Hide guitar tagline on mobile - too much text */
   .guitar-tagline {
-    font-size: 1em;
-    margin-bottom: 1.2em;
-    padding: 0 1em;
+    display: none;
   }
 
+  /* All grids become masonry-compatible */
+  .third,
+  .photo-gallery,
+  .cooking-gallery,
+  .cooking-grid,
+  .photo-grid {
+    display: contents;
+  }
+
+  /* Universal Pinterest image card style */
+  .image-container,
+  .photo-item,
+  .cooking-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+
+  /* Featured images - LARGER for visual hierarchy */
+  .photo-featured,
+  .cooking-featured {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Guitar image - medium emphasis */
   .guitar-image-container {
-    border-radius: 6px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.11);
   }
 
-  /* COMPLETELY disable guitar image lightbox on mobile */
-  .guitar-image-container a,
-  .guitar-image-container a.image-popup {
+  /* Subtle tap feedback */
+  .image-container:active,
+  .photo-item:active,
+  .cooking-item:active {
+    transform: scale(0.98);
+  }
+
+  .photo-featured:active,
+  .cooking-featured:active,
+  .guitar-image-container:active {
+    transform: scale(0.99);
+  }
+
+  /* Images fill card naturally - no forced aspect ratio */
+  .image-container img,
+  .photo-featured img,
+  .photo-item img,
+  .cooking-featured img,
+  .cooking-item img,
+  .guitar-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Disable all lightbox on mobile */
+  .image-container a,
+  .photo-featured a,
+  .photo-item a,
+  .cooking-featured a,
+  .cooking-item a,
+  .guitar-image-container a {
     cursor: default !important;
     pointer-events: none !important;
-    text-decoration: none !important;
+    display: block;
   }
 
-  .guitar-image-container img {
-    cursor: default !important;
+  /* Minimal, elegant captions */
+  .image-caption {
+    position: static;
+    transform: translateY(0);
+    background: transparent;
+    padding: 10px 14px 12px;
+    margin: 0;
   }
 
-  .guitar-image-container:hover {
-    transform: none;
+  .caption-title {
+    color: #666;
+    font-size: 0.75em;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
   }
 
-  .guitar-image-container:hover img {
-    transform: none;
+  /* Hide caption description if exists */
+  .caption-description {
+    display: none;
   }
 
-  /* Artist names - slightly smaller on mobile */
+  /* Remove section containers - everything flows */
+  .guitar-showcase {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    max-width: 100%;
+    background: transparent;
+  }
+
+  /* Artist names styled within text cards */
   .artist-name {
-    font-size: 0.98em;
+    font-size: 1em;
+    font-weight: 600;
+    color: #343434;
   }
 
-  /* Cooking Section - Mobile Optimized Vertical Stack */
+  /* Cooking gallery flows into masonry */
   .cooking-section {
-    margin-top: 2.5em;
-  }
-
-  .cooking-section p {
-    font-size: 0.95em;
-    margin-bottom: 1.5em;
+    margin: 0;
     padding: 0;
   }
 
-  /* Single column layout for mobile */
   .cooking-gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-    margin: 1.5em 0 0 0;
+    display: contents;
   }
 
-  /* Featured image - larger on mobile */
-  .cooking-featured {
-    border-radius: 6px;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
-  }
-
-  .cooking-featured:hover {
-    transform: none;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
-  }
-
-  .cooking-featured:hover img {
-    transform: none;
-  }
-
-  .cooking-featured img {
-    aspect-ratio: 16/9;
-  }
-
-  /* Grid items - compact on mobile */
   .cooking-grid {
-    gap: 1.2em;
-  }
-
-  .cooking-item {
-    border-radius: 6px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .cooking-item:hover {
-    transform: none;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .cooking-item:hover img {
-    transform: none;
-  }
-
-  .cooking-item img {
-    aspect-ratio: 16/9;
-  }
-
-  /* Disable cooking image lightbox on mobile */
-  .cooking-featured a,
-  .cooking-item a {
-    cursor: default !important;
-    pointer-events: none !important;
-  }
-
-  .cooking-featured img,
-  .cooking-item img {
-    cursor: default !important;
+    display: contents;
   }
 }
 

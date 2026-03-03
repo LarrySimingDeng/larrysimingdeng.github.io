@@ -4,6 +4,8 @@ permalink: /hobbies/index.html
 title: Beyond Research
 ---
 
+<div class="hobbies-pinterest-container">
+
 <div class="hobby-section" markdown="1">
 
 ## Personal Photos
@@ -35,7 +37,9 @@ title: Beyond Research
 
 ## Possibly the World's Best Amateur Chef
 
-From traditional dishes to fusion experiments, every meal is an opportunity to create, taste, and share.
+<div class="cooking-text-card">
+Every meal is an opportunity to create, taste, and share.
+</div>
 
 <div class="cooking-gallery">
   <div class="cooking-featured">
@@ -85,13 +89,4 @@ My musical heroes are legends who pioneered the genre: <span class="artist-name"
 
 </div>
 
-<!-- ## Chat with me -->
-
-<!-- **Jan 2023:** I have set up the [online-coffee-time](https://calendly.com/lancecai/meet-with-lance) (Inspired by [Shangzhe Wu](https://elliottwu.com/)). Welcome to chat with me! -->
-
-<!-- Calendly inline widget begin -->
-
-<!-- <div class="calendly-inline-widget" data-url="https://calendly.com/lancecai/meet-with-lance" style="min-width:320px;height:630px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script> -->
-<!-- Calendly inline widget end -->
-
+</div><!-- End hobbies-pinterest-container -->
