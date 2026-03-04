@@ -8,7 +8,7 @@ layout: page
 
 Here is **Siming Deng (Larry Deng)**.<br>
 
-I am a graduate student in the Department of [Electrical and Systems Engineering (ESE)](https://www.ese.upenn.edu/) at the [Penn Engineering](https://www.seas.upenn.edu/) of the **University of Pennsylvania**.<!-- advised by [Prof. XXX](放教授web，http开头), within [Internet of Everything (IoE) Group](https://ioe.eng.cam.ac.uk/).--> Prior to joining Penn, I gained valuable research experiences as a Research Assistant at Shenzhen University under the supervision of [Dr. Jun Zhang](https://www.researchgate.net/profile/Jun_Zhang93). My work focused on **Nonparametric Statistics**, **Distortion Measurement Error Models**, and **Large Sample Theory**. I developed and analyzed advanced statistical methods, conducted large-scale simulations using R, and applied these techniques to real-world datasets, resulting in five SCI publications.<br>
+I am a graduate student in the Department of [Electrical and Systems Engineering (ESE)](https://www.ese.upenn.edu/) at the [Penn Engineering](https://www.seas.upenn.edu/) of the **University of Pennsylvania**.<!-- advised by [Prof. XXX](放教授web，http开头), within [Internet of Everything (IoE) Group](https://ioe.eng.cam.ac.uk/).--> Prior to joining Penn, I gained valuable research experiences as a Research Assistant at Shenzhen University under the supervision of [Dr. Jun Zhang](https://www.researchgate.net/profile/Jun_Zhang93). My work focused on **Nonparametric Statistics**, **Distortion Measurement Error Models**, and **Large Sample Theory**. I developed and analyzed advanced statistical methods, conducted large-scale simulations, and applied these techniques to real-world datasets, resulting in five SCI publications.<br>
 
 ## Work Experience
 
@@ -18,7 +18,7 @@ I am a graduate student in the Department of [Electrical and Systems Engineering
   Supervised by Distinguished Professor [Joshua Zhexue Huang](https://dblp.org/pid/h/JoshuaZhexueHuang.html). Carried out optimizations on data processing and clustering algorithms by leveraging distributed approximate computing techniques.<br>
 
 - **Software Development Intern** @ Bank of China<br>
-  Involved in the deployment and fine-tuning of large language models; utilized Vue.js framework for frontend development.<br>
+  Involved in the deployment and fine-tuning of large language models in internal banking systems.<br>
 
 - **Software Engineer Intern** @ Apple Inc.<br>
   Developed AI agent tools for iPhone hardware testing, enhancing automated diagnostics workflows and improving large-scale test efficiency.<br>
