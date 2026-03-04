@@ -1954,9 +1954,15 @@ $(function() {
     document.querySelectorAll('.hobby-section').forEach(section => {
       observer.observe(section);
     });
+
+    // News cards scroll animation
+    document.querySelectorAll('.news-card').forEach(card => {
+      observer.observe(card);
+    });
   } else {
     // Fallback for browsers without IntersectionObserver support
     $('.hobby-section').addClass('animate-in');
+    $('.news-card').addClass('animate-in');
   }
 });
 

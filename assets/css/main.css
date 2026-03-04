@@ -385,6 +385,125 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;-w
 @media print{*{background:transparent !important;color:black !important;box-shadow:none !important;text-shadow:none !important;filter:none !important;-ms-filter:none !important;position:static !important;} @page {margin:0.5cm;}h2,h3{orphans:3;widows:3;page-break-after:avoid;} p{orphans:3;widows:3;} pre,blockquote{border:1px solid #333;page-break-inside:avoid;padding:1em;} abbr[title]:after{content:" (" attr(title) ")";} a,a:visited{text-decoration:underline;} a[href]:after{content:" (" attr(href) ")";} a[href^="javascript:"]:after,a[href^="#"]:after{content:"";} img{max-width:100% !important;page-break-inside:avoid;} thead{display:table-header-group;} tr{page-break-inside:avoid;}}@media only screen and (min-width:30em){.image-grid li{width:33.333333%;}}@media only screen and (min-width:37.5em){html{font-size:95%;} .site-name{display:inline;float:left;width:16.666666666666668%;margin-left:4.166666666666667%;margin-right:4.166666666666667%;} .top-navigation{display:inline;float:left;width:75%;margin-left:0%;margin-right:0%;} .image-wrap .headline-wrap,.image-wrap:after{left:25%;} .image-wrap .headline-wrap{margin-left:0;} #main article{display:inline;float:left;width:50%;margin-left:0%;margin-right:0%;} #index{display:inline;float:left;width:50%;margin-left:0%;margin-right:0%;} .footer-wrap footer{display:inline;float:left;width:50%;margin-left:25%;margin-right:25%;} .article-author-top{display:block;display:inline;float:left;width:16.666666666666668%;margin-left:4.166666666666667%;margin-right:4.166666666666667%;} .article-author-bottom{display:none;} .toc{display:block;display:inline;float:left;width:16.666666666666668%;margin-left:4.166666666666667%;margin-right:4.166666666666667%;position:fixed;top:120px;right:0;-webkit-box-shadow:0 0 5px rgba(0, 0, 0, 0.5);-moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.5);box-shadow:0 0 5px rgba(0, 0, 0, 0.5);} .image-grid li{width:25%;} .related-articles{display:inline;float:left;width:50%;margin-left:25%;margin-right:25%;}}@media only screen and (min-width:48em){html{font-size:100%;} .image-grid li{width:20%;}}@media only screen and (min-width:62em){html{font-size:112.5%;} .image-grid li{width:16.666666666%;}}@media only screen and (min-width:86.375em){.site-name{display:inline;float:left;width:12.5%;margin-left:16.666666666666668%;} .top-navigation{display:inline;float:left;width:66.66666666666667%;} .image-wrap:after{left:33.333333333%;} .image-wrap .headline-wrap{margin-left:8.333333333333334%;} #main article{display:inline;float:left;width:37.5%;} #index{display:inline;float:left;width:37.5%;} .related-articles{display:inline;float:left;width:37.5%;margin-left:33.333333333333336%;margin-right:29.166666666666668%;} .footer-wrap footer{display:inline;float:left;width:37.5%;margin-left:33.333333333333336%;margin-right:29.166666666666668%;} .article-author-top{display:inline;float:left;width:12.5%;margin-left:16.666666666666668%;}}@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){}
 
 /* ============================================
+   NEWS AND UPDATES - NEWSROOM STYLE
+   ============================================ */
+
+.news-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 1.5em;
+}
+
+.news-card {
+  position: relative;
+  background: #fbfbfd;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 1.4em 1.6em 1.3em;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  cursor: default;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+
+/* 入场动画 */
+@keyframes newsCardEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.news-card.animate-in {
+  animation: newsCardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.news-card:nth-child(1).animate-in { animation-delay: 0s; }
+.news-card:nth-child(2).animate-in { animation-delay: 0.12s; }
+.news-card:nth-child(3).animate-in { animation-delay: 0.24s; }
+
+/* Hover */
+.news-card.animate-in:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.1);
+}
+
+/* Meta row */
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  margin-bottom: 0.65em;
+}
+
+/* 日期 */
+.news-date {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 0.78em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #86868b;
+}
+
+/* 标签（带圆点指示器） */
+.news-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 0.7em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+.news-tag::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.news-tag--publication { color: #2563EB; }
+.news-tag--publication::before { background: #2563EB; }
+.news-tag--milestone { color: #059669; }
+.news-tag--milestone::before { background: #059669; }
+
+/* 正文 */
+.news-card p { margin: 0; font-size: 0.95em; line-height: 1.7; color: #1d1d1f; }
+.news-card a { text-decoration: none; border-bottom: 1px dotted #b3b3b1; }
+.news-card a:hover { border-bottom-style: solid; }
+
+/* 无障碍 */
+@media (prefers-reduced-motion: reduce) {
+  .news-card { opacity: 1; transform: none; transition: none; }
+  .news-card.animate-in { animation: none; opacity: 1; transform: none; }
+  .news-card.animate-in:hover { transform: none; }
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .news-grid { gap: 0.8em; }
+  .news-card { padding: 1.15em 1.2em 1.05em; border-radius: 10px; }
+  .news-date { font-size: 0.74em; }
+  .news-tag { font-size: 0.66em; }
+  .news-card p { font-size: 0.9em; line-height: 1.65; }
+  .news-card.animate-in:hover {
+    transform: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .news-card { padding: 1.3em 1.4em 1.2em; border-radius: 11px; }
+}
+
+/* ============================================
    Work Experience Timeline Styles
    ============================================ */
 

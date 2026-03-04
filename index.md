@@ -43,8 +43,60 @@ My current research focuses on addressing critical challenges in measurement err
 
 ## News and Updates
 
-- **February 2026**: First-Author Paper: [**Innovative covariance-based framework: symmetry assessment and exponentiality testing under multiplicative distortion measurement Errors**](https://www.tandfonline.com/doi/abs/10.1080/03610918.2026.2635000) Now Officially Published in [Communications in Statistics - Simulation and Computation](https://www.tandfonline.com/journals/lssp20)
-- **March 2025**: Thrilled to have received an offer from UPenn Engineering!<br>
-- **August 2024**: First-Author Paper: [**A New Logarithmic Multiplicative Distortion for Correlation Analysis**](https://onlinelibrary.wiley.com/doi/10.1002/sam.11708) Now Officially Published in [Statistical Analysis and Data Mining](https://onlinelibrary.wiley.com/journal/19321872) (JCR Q1)<br>
+<div class="news-grid">
+  <div class="news-card news-card--publication">
+    <div class="news-meta">
+      <span class="news-date">February 2026</span>
+      <span class="news-tag news-tag--publication">Publication</span>
+    </div>
+    <p>First-Author Paper: <a href="https://www.tandfonline.com/doi/abs/10.1080/03610918.2026.2635000"><strong>Innovative covariance-based framework: symmetry assessment and exponentiality testing under multiplicative distortion measurement Errors</strong></a> Now Officially Published in <a href="https://www.tandfonline.com/journals/lssp20">Communications in Statistics - Simulation and Computation</a></p>
+  </div>
+
+  <div class="news-card news-card--milestone">
+    <div class="news-meta">
+      <span class="news-date">Jan 2026</span>
+      <span class="news-tag news-tag--milestone">Milestone</span>
+    </div>
+    <p>Excited to have received an offer from Apple!</p>
+  </div>
+
+  <div class="news-card news-card--milestone">
+    <div class="news-meta">
+      <span class="news-date">March 2025</span>
+      <span class="news-tag news-tag--milestone">Milestone</span>
+    </div>
+    <p>Thrilled to have received an offer from UPenn Engineering!</p>
+  </div>
+
+  <div class="news-card news-card--publication">
+    <div class="news-meta">
+      <span class="news-date">August 2024</span>
+      <span class="news-tag news-tag--publication">Publication</span>
+    </div>
+    <p>First-Author Paper: <a href="https://onlinelibrary.wiley.com/doi/10.1002/sam.11708"><strong>A New Logarithmic Multiplicative Distortion for Correlation Analysis</strong></a> Now Officially Published in <a href="https://onlinelibrary.wiley.com/journal/19321872">Statistical Analysis and Data Mining</a> (JCR Q1)</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.news-card').forEach(function(card) {
+      observer.observe(card);
+    });
+  } else {
+    document.querySelectorAll('.news-card').forEach(function(card) {
+      card.classList.add('animate-in');
+    });
+  }
+})();
+</script>
 
 <!-- <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Thrilled to be an AAAI-UC Scholar at <a href="https://twitter.com/hashtag/AAAI24?src=hash&amp;ref_src=twsrc%5Etfw">#AAAI24</a>, thanks to <a href="https://twitter.com/hashtag/AAAI?src=hash&amp;ref_src=twsrc%5Etfw">#AAAI</a> &amp; <a href="https://twitter.com/hashtag/GoogleExploreCSR?src=hash&amp;ref_src=twsrc%5Etfw">#GoogleExploreCSR</a> for the sponsorship. Grateful for the knowledge gained and new friendships formed.<br><br>Wonderful trip in Vancouver. Looking forward to staying connected with all.<a href="https://twitter.com/hashtag/AAAI24?src=hash&amp;ref_src=twsrc%5Etfw">#AAAI24</a> <a href="https://twitter.com/hashtag/Vancouver?src=hash&amp;ref_src=twsrc%5Etfw">#Vancouver</a> <a href="https://twitter.com/hashtag/GoogleExploreCSR?src=hash&amp;ref_src=twsrc%5Etfw">#GoogleExploreCSR</a> <a href="https://t.co/wUQUp8XlSM">pic.twitter.com/wUQUp8XlSM</a></p>&mdash; Hanlin CAI (seeking a PhD position 2025) (@lancecai2002) <a href="https://twitter.com/lancecai2002/status/1762210025173344260?ref_src=twsrc%5Etfw">February 26, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
