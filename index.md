@@ -17,10 +17,10 @@ I am a graduate student in the Department of [Electrical and Systems Engineering
 - **Research Assistant** @ [Big Data Institute, Shenzhen University](https://bdsc.szu.edu.cn/)<br>
   Supervised by Distinguished Professor [Joshua Zhexue Huang](https://dblp.org/pid/h/JoshuaZhexueHuang.html). Carried out optimizations on data processing and clustering algorithms by leveraging distributed approximate computing techniques.<br>
 
-- **Software Development Intern** @ Bank of China<br>
+- **Software Development** @ Bank of China<br>
   Involved in the deployment and fine-tuning of large language models in internal banking systems.<br>
 
-- **Software Engineer Intern** @ Apple Inc.<br>
+- **Software Engineer** @ Apple Inc.<br>
   Developed AI agent tools for iPhone hardware testing, enhancing automated diagnostics workflows and improving large-scale test efficiency.<br>
 
 </div>
