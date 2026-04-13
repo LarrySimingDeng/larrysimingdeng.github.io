@@ -131,7 +131,7 @@ If you are interested in any aspect of me, I am always open to discussions and c
 
   <div class="publication-card">
     <div class="publication-thumb">
-      <img src="/images/papers/paper2.png" alt="A New Logarithmic Multiplicative Distortion">
+      <img src="/images/papers/paper2.svg" alt="A New Logarithmic Multiplicative Distortion">
       <a href="https://onlinelibrary.wiley.com/doi/10.1002/sam.11708" class="publication-overlay" target="_blank" rel="noopener">
         <span>View Paper</span>
       </a>
@@ -148,7 +148,7 @@ If you are interested in any aspect of me, I am always open to discussions and c
 
   <div class="publication-card">
     <div class="publication-thumb">
-      <img src="/images/papers/paper3.png" alt="A Revisit to Pearson Correlation Coefficient">
+      <img src="/images/papers/paper3.svg" alt="A Revisit to Pearson Correlation Coefficient">
       <a href="https://www.tandfonline.com/doi/full/10.1080/03610918.2024.2333352" class="publication-overlay" target="_blank" rel="noopener">
         <span>View Paper</span>
       </a>
@@ -165,7 +165,7 @@ If you are interested in any aspect of me, I am always open to discussions and c
 
   <div class="publication-card">
     <div class="publication-thumb">
-      <img src="/images/papers/paper4.png" alt="Covariance Ratio under Multiplicative Distortion">
+      <img src="/images/papers/paper4.svg" alt="Covariance Ratio under Multiplicative Distortion">
       <a href="https://www.tandfonline.com/doi/full/10.1080/03610926.2023.2295240" class="publication-overlay" target="_blank" rel="noopener">
         <span>View Paper</span>
       </a>
@@ -182,7 +182,7 @@ If you are interested in any aspect of me, I am always open to discussions and c
 
   <div class="publication-card">
     <div class="publication-thumb">
-      <img src="/images/papers/paper5.png" alt="Estimation of Correlation Coefficient">
+      <img src="/images/papers/paper5.svg" alt="Estimation of Correlation Coefficient">
       <a href="https://www.tandfonline.com/doi/full/10.1080/03610926.2023.2288794" class="publication-overlay" target="_blank" rel="noopener">
         <span>View Paper</span>
       </a>
