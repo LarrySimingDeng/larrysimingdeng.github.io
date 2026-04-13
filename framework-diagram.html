@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Framework Diagram — Paper 1</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(160deg, #f8f9fc 0%, #f0f2f8 40%, #eceef6 100%);
+    font-family: 'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 16:9 canvas */
+  .canvas {
+    width: 1280px;
+    height: 720px;
+    background: linear-gradient(160deg, #f8f9fc 0%, #f0f2f8 40%, #eceef6 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 36px 10px;
+  }
+
+  /* subtle grid texture */
+  .canvas::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, #c8cdd8 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  /* ── Header ── */
+  .hdr {
+    text-align: center;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hdr-eye {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #8892a4;
+  }
+
+  .hdr h1 {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #1a1f2e;
+    margin-top: 4px;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Layout grid ── */
+  .flow {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .row {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* ── Nodes ── */
+  .n {
+    border-radius: 8px;
+    padding: 7px 14px;
+    position: relative;
+    backdrop-filter: blur(4px);
+  }
+
+  .n .t {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .n .t .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #fff;
+  }
+
+  .n .m {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  .n .d {
+    font-size: 9px;
+    margin-top: 2px;
+    opacity: 0.6;
+    line-height: 1.35;
+  }
+
+  .n .d b { font-weight: 600; opacity: 1; }
+
+  /* ── Color skins ── */
+  .n.sl { background: rgba(246,247,249,0.92); border: 1.5px solid #c0c7d2; }
+  .n.sl .t { color: #4a5568; }
+  .n.sl .t .num { background: #4a5568; }
+  .n.sl .m { color: #1a1f2e; }
+
+  .n.bl { background: rgba(237,244,255,0.92); border: 1.5px solid #7fadee; }
+  .n.bl .t { color: #1a56db; }
+  .n.bl .t .num { background: #1a56db; }
+  .n.bl .m { color: #1e3a6e; }
+
+  .n.gn { background: rgba(238,249,240,0.92); border: 1.5px solid #60c880; }
+  .n.gn .t { color: #137333; }
+  .n.gn .t .num { background: #137333; }
+  .n.gn .m { color: #0d4f22; }
+
+  .n.vi { background: rgba(245,240,255,0.92); border: 1.5px solid #a88de8; }
+  .n.vi .t { color: #5b2dae; }
+  .n.vi .t .num { background: #5b2dae; }
+  .n.vi .m { color: #3d1a80; }
+
+  .n.rs { background: rgba(254,241,242,0.92); border: 1.5px solid #ef8f9a; }
+  .n.rs .t { color: #b91c3a; }
+  .n.rs .t .num { background: #b91c3a; }
+  .n.rs .m { color: #7f1128; }
+
+  .n.am { background: rgba(254,250,235,0.92); border: 1.5px solid #e8be3c; }
+  .n.am .t { color: #92590e; }
+  .n.am .t .num { background: #92590e; }
+  .n.am .m { color: #6b3f07; }
+
+  /* ── Chips ── */
+  .chips { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }
+
+  .chip {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .chip.gc { background: #ddf5e3; border: 1px solid #a3e4b5; color: #0d4f22; }
+  .chip.bc { background: #dce8fd; border: 1px solid #96b8f0; color: #1e3a6e; }
+
+  .chip.star {
+    position: relative;
+    background: #ccf2d6;
+    border-color: #4ade80;
+  }
+  .chip.star::after {
+    content: '★';
+    position: absolute;
+    top: -7px;
+    right: -3px;
+    font-size: 9px;
+    color: #f59e0b;
+  }
+
+  /* ── Arrows ── */
+  .arr {
+    display: flex;
+    justify-content: center;
+    color: #a0aab8;
+    font-size: 15px;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .arr-r {
+    color: #a0aab8;
+    font-size: 16px;
+    align-self: center;
+    flex-shrink: 0;
+  }
+
+  /* ── Fork / Merge connectors ── */
+  .fork {
+    position: relative;
+    height: 14px;
+  }
+
+  .fork::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    width: 1.5px; height: 6px;
+    background: #a0aab8;
+  }
+
+  .fork::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 25%; right: 25%;
+    height: 1.5px;
+    background: #a0aab8;
+  }
+
+  .fork .leg {
+    position: absolute;
+    top: 6px;
+    width: 1.5px;
+    height: 7px;
+    background: #a0aab8;
+  }
+  .fork .leg.l { left: 25%; }
+  .fork .leg.r { right: 25%; }
+
+  .fork .tip {
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    color: #a0aab8;
+  }
+  .fork .tip.l { left: calc(25% - 4px); }
+  .fork .tip.r { right: calc(25% - 4px); }
+
+  .merge {
+    position: relative;
+    height: 14px;
+  }
+
+  .merge::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 25%; right: 25%;
+    height: 1.5px;
+    background: #a0aab8;
+  }
+
+  .merge::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1.5px;
+    height: 10px;
+    background: #a0aab8;
+  }
+
+  .merge .leg {
+    position: absolute;
+    top: 0;
+    width: 1.5px;
+    height: 6px;
+    background: #a0aab8;
+  }
+  .merge .leg.l { left: 25%; }
+  .merge .leg.r { right: 25%; }
+
+  .merge .tip {
+    position: absolute;
+    bottom: -3px;
+    left: calc(50% - 4px);
+    font-size: 12px;
+    color: #a0aab8;
+  }
+
+  /* ── Branch labels ── */
+  .branch-row {
+    display: flex;
+    gap: 10px;
+    position: relative;
+  }
+
+  .branch-lbl {
+    position: absolute;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    top: -9px;
+    z-index: 2;
+  }
+
+  .branch-lbl.pa {
+    background: #e8f8ed;
+    color: #137333;
+    border: 1px solid #86efac;
+    left: 60px;
+  }
+
+  .branch-lbl.pb {
+    background: #edf4ff;
+    color: #1a56db;
+    border: 1px solid #93c5fd;
+    right: 60px;
+  }
+
+  /* ── Hypothesis ── */
+  .hypo-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .hypo {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+
+  .hypo.h0 { background: #fde8e9; border: 1px solid #f5a0a8; color: #7f1128; }
+  .hypo.h1 { background: #fef6dd; border: 1px solid #fcd34d; color: #6b3f07; }
+
+  /* ── Results ── */
+  .results {
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .rtag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid #dfe3ea;
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-size: 9px;
+    font-weight: 500;
+    color: #3d4654;
+  }
+
+  .rtag .ic { font-size: 11px; font-weight: 700; }
+  .rtag .ic.ck { color: #16a34a; }
+  .rtag .ic.st { color: #f59e0b; }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 4px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .legend-line {
+    width: 20px;
+    height: 0;
+  }
+
+  .legend-line.s { border-top: 2px solid #7fadee; }
+  .legend-line.da { border-top: 2px dashed #60c880; }
+
+  .legend-txt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    color: #8892a4;
+    font-weight: 500;
+  }
+
+  /* ── Section refs ── */
+  .sec {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 7.5px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #b8c0d0;
+    position: absolute;
+    right: 6px;
+    top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="canvas">
+
+  <!-- ═══ HEADER ═══ -->
+  <div class="hdr">
+    <div class="hdr-eye">Methodological Framework</div>
+    <h1>Covariance-Based Symmetry Assessment &amp; Exponentiality Testing under Multiplicative Distortion</h1>
+  </div>
+
+  <div class="flow">
+
+    <!-- ═══ STAGE 1: Distortion Model ═══ -->
+    <div class="row">
+      <div class="n sl" style="flex:1; text-align:center;">
+        <span class="sec">§ 1</span>
+        <div class="t" style="justify-content:center;"><span class="num">1</span> Multiplicative Distortion Model</div>
+        <div class="m" style="font-size:14px; margin:1px 0;">X̃ = ψ(U) · X</div>
+        <div class="d"><b>X</b> unobservable &ensp;·&ensp; <b>U</b> observable confounding &ensp;·&ensp; <b>ψ(·)</b> unknown smoothing function &ensp;·&ensp; E[ψ(U)] = 1</div>
+      </div>
+    </div>
+
+    <!-- ═══ FORK ═══ -->
+    <div class="fork">
+      <div class="leg l"></div>
+      <div class="leg r"></div>
+      <span class="tip l">↓</span>
+      <span class="tip r">↓</span>
+    </div>
+
+    <!-- ═══ STAGE 2: Two branches ═══ -->
+    <div class="branch-row">
+      <span class="branch-lbl pa">Path A · ψ(U) = 1</span>
+      <span class="branch-lbl pb">Path B · ψ(U) ≠ 1</span>
+
+      <!-- PATH A -->
+      <div class="n gn" style="flex:1;">
+        <span class="sec">§ 2</span>
+        <div class="t"><span class="num">2a</span> Direct λ Estimation</div>
+        <div class="m">X observed directly — four estimators:</div>
+        <div class="chips">
+          <span class="chip gc">λ̂₁ = X̄ (MLE)</span>
+          <span class="chip gc">λ̂₂ = Σlog(Xᵢ)(Xᵢ−X̄)/n</span>
+          <span class="chip gc">λ̂₃ = 1/(2f̄)</span>
+          <span class="chip gc star">λ̂₄ = Σ(1−F̂)/f̂/n</span>
+        </div>
+        <div class="d"><b>λ̂₄</b> : MLE-level efficiency (Var = λ²) · <b>λ̂₃ , λ̂₄</b> robust to outliers</div>
+      </div>
+
+      <!-- PATH B -->
+      <div class="n bl" style="flex:1;">
+        <span class="sec">§ 3</span>
+        <div class="t"><span class="num">2b</span> Conditional Mean Calibration</div>
+        <div class="m">ψ̂(U) = Ê(X̃|U) / X̄̃ &ensp;→&ensp; X̂<sub>C,i</sub> = X̃<sub>i</sub> / ψ̂<sub>C</sub>(U<sub>i</sub>)</div>
+        <div class="d" style="margin-bottom:4px;">Nadaraya-Watson kernel estimator</div>
+        <div class="chips">
+          <span class="chip bc">λ̂<sub>C,1</sub> = 1/(2f̄<sub>C</sub>)</span>
+          <span class="chip bc">λ̂<sub>C,2</sub> = Σ(1−F̂<sub>C</sub>)/f̂<sub>C</sub>/n</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ MERGE ═══ -->
+    <div class="merge">
+      <div class="leg l"></div>
+      <div class="leg r"></div>
+      <span class="tip">↓</span>
+    </div>
+
+    <!-- ═══ STAGE 3: Transform ═══ -->
+    <div class="row">
+      <div class="n vi" style="flex:1; text-align:center;">
+        <div class="t" style="justify-content:center;"><span class="num">3</span> Exponential Transform</div>
+        <div class="m" style="font-size:12px;">V̂<sub>s,i</sub> = exp(−X̂<sub>i</sub> / λ̂<sub>s</sub>) &ensp;&ensp; Under H₀ : X ~ Exp(λ) ⟹ V ~ U(0,1) &ensp;&ensp; f̂<sub>V</sub>(v) &amp; F̂<sub>V</sub>(v) estimated nonparametrically</div>
+      </div>
+    </div>
+
+    <div class="arr">↓</div>
+
+    <!-- ═══ STAGE 4: Covariance measure ═══ -->
+    <div class="row">
+      <div class="n rs" style="flex:1; text-align:center;">
+        <div class="t" style="justify-content:center;"><span class="num">4</span> Covariance-Based Symmetry Measure</div>
+        <div class="m" style="font-size:14px; margin:2px 0; letter-spacing:0.3px;">ℵ<sub>0.5</sub> = Cov( f<sub>S</sub><sup>&thinsp;0.5</sup>(S), &thinsp;F<sub>S</sub>(S) )</div>
+        <div class="d" style="opacity:1; font-size:9.5px;">S = F(X) &ensp;·&ensp; Handles uniform f<sub>S</sub> where ρ<sub>0.5</sub> undefined &ensp;·&ensp; Estimators: <b>ℵ̂<sub>0.5,s</sub></b> (s = 1‒4) &ensp;&amp;&ensp; <b>ℵ̂<sub>C,0.5,s</sub></b> (s = 1,2)</div>
+        <div class="hypo-row">
+          <span class="hypo h0">H₀ (exponential) : ℵ<sub>0.5</sub> = 0</span>
+          <span class="hypo h1">H₁ (not exponential) : ℵ<sub>0.5</sub> ≠ 0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arr">↓</div>
+
+    <!-- ═══ STAGE 5: EL Inference ═══ -->
+    <div class="row">
+      <div class="n am" style="flex:1; text-align:center;">
+        <div class="t" style="justify-content:center;"><span class="num">5</span> Empirical Likelihood Inference</div>
+        <div class="m" style="font-size:12px;">ℓ̂<sub>n</sub>(ℵ<sub>0.5</sub>) →<sup style="font-size:8px;"> d</sup> χ²<sub>1</sub> &ensp;&ensp; Reject H₀ if 0 ∉ CI &ensp;&ensp; No pre-specified λ &ensp;&ensp; CMC: ℓ̂<sub>C,n,s</sub> → χ²<sub>1</sub></div>
+      </div>
+    </div>
+
+    <div class="arr">↓</div>
+
+    <!-- ═══ STAGE 6: Results ═══ -->
+    <div class="results">
+      <div class="rtag"><span class="ic st">★</span> λ̂₄ MLE-efficient</div>
+      <div class="rtag"><span class="ic ck">✓</span> λ̂₃, λ̂₄ outlier-robust</div>
+      <div class="rtag"><span class="ic ck">✓</span> CMC eliminates distortion</div>
+      <div class="rtag"><span class="ic ck">✓</span> Same variance ± distortion</div>
+      <div class="rtag"><span class="ic ck">✓</span> EL CIs validated</div>
+    </div>
+
+    <!-- ═══ LEGEND ═══ -->
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-line da"></div>
+        <div class="legend-txt">Path A — no distortion ψ(U) = 1 (§ 2)</div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-line s"></div>
+        <div class="legend-txt">Path B — with distortion ψ(U) ≠ 1 (§ 3)</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
