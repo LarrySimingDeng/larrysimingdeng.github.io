@@ -32,12 +32,27 @@ I am a graduate student in the Department of [Electrical and Systems Engineering
 
   <div class="timeline-item">
     <div class="timeline-dot" style="background: #ffffff;">
+      <img src="/images/logo/sf.svg" alt="SF Express">
+    </div>
+    <div class="timeline-card">
+      <div class="timeline-header">
+        <div class="timeline-role">Software Engineer <span class="timeline-sep">|</span> <span class="timeline-company">SF Express</span></div>
+        <span class="timeline-time">May. 2025 - Jul. 2025</span>
+      </div>
+      <div class="timeline-details">
+        Delivered microservice modules for the order management system.
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot" style="background: #ffffff;">
       <img src="/images/logo/boc.svg" alt="Bank of China">
     </div>
     <div class="timeline-card">
       <div class="timeline-header">
         <div class="timeline-role">Software Engineer <span class="timeline-sep">|</span> <span class="timeline-company">Bank of China</span></div>
-        <span class="timeline-time">Jun. 2025 - Sep. 2025</span>
+        <span class="timeline-time">Jul. 2024 - Sep. 2024</span>
       </div>
       <div class="timeline-details">
         Involved in the deployment and fine-tuning of large language models in internal banking systems.
