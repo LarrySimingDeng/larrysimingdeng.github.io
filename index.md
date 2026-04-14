@@ -157,7 +157,7 @@ If you are interested in any aspect of me, I am always open to discussions and c
       </div>
       <div class="publication-authors"><strong class="author-highlight">Siming Deng</strong>, Jun Zhang</div>
       <div class="publication-conference"><span class="pub-venue">Statistical Analysis and Data Mining, 2024</span> <a href="https://onlinelibrary.wiley.com/doi/10.1002/sam.11708" target="_blank">[paper]</a></div>
-      <div class="publication-details">SCI, JCR: Q1, first author</div>
+      <div class="publication-details">SCI, JCR: Q1, first author, Top cited article</div>
     </div>
   </div>
 
