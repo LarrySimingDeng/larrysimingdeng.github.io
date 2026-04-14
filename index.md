@@ -32,6 +32,21 @@ I am a graduate student in the Department of [Electrical and Systems Engineering
 
   <div class="timeline-item">
     <div class="timeline-dot" style="background: #ffffff;">
+      <img src="/images/logo/upenn.svg" alt="UPenn">
+    </div>
+    <div class="timeline-card">
+      <div class="timeline-header">
+        <div class="timeline-role">Research Assistant <span class="timeline-sep">|</span> <span class="timeline-company">University of Pennsylvania</span></div>
+        <span class="timeline-time">Nov. 2025 - Jan. 2026</span>
+      </div>
+      <div class="timeline-details">
+        ViT-driven image geolocation.
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot" style="background: #ffffff;">
       <img src="/images/logo/sf.svg" alt="SF Express">
     </div>
     <div class="timeline-card">
