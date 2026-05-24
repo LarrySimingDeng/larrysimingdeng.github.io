@@ -324,6 +324,26 @@
 <body class="page" itemscope itemtype="http://schema.org/WebPage">
   {% include chrome-frame.html %}
 
+  <!-- Theme toggle icon symbols (defined once, referenced via <use>) -->
+  <svg display="none" aria-hidden="true">
+    <symbol id="icon-sun" viewBox="0 0 24 24">
+      <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="12" y1="17" x2="12" y2="20" transform="rotate(0,12,12)" />
+        <line x1="12" y1="17" x2="12" y2="20" transform="rotate(45,12,12)" />
+        <line x1="12" y1="17" x2="12" y2="20" transform="rotate(90,12,12)" />
+        <line x1="12" y1="17" x2="12" y2="20" transform="rotate(135,12,12)" />
+        <line x1="12" y1="17" x2="12" y2="20" transform="rotate(180,12,12)" />
+        <line x1="12" y1="17" x2="12" y2="20" transform="rotate(225,12,12)" />
+        <line x1="12" y1="17" x2="12" y2="20" transform="rotate(270,12,12)" />
+        <line x1="12" y1="17" x2="12" y2="20" transform="rotate(315,12,12)" />
+      </g>
+      <circle fill="currentColor" cx="12" cy="12" r="5" />
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M15.1,14.9c-3-0.5-5.5-3-6-6C8.8,7.1,9.1,5.4,9.9,4c0.4-0.8-0.4-1.7-1.2-1.4C4.6,4,1.8,7.9,2,12.5c0.2,5.1,4.4,9.3,9.5,9.5c4.5,0.2,8.5-2.6,9.9-6.6c0.3-0.8-0.6-1.7-1.4-1.2C18.6,14.9,16.9,15.2,15.1,14.9z" />
+    </symbol>
+  </svg>
+
   <div class="header-sticky-wrapper">
     <div class="header-container">
       <!-- Mobile avatar with expandable contact menu -->
@@ -337,7 +357,31 @@
       <div class="nav-wrapper">
         {% include navigation.html %}
       </div>
+
       <img src="/images/pennlogo.png" class="logo" alt="UPenn Logo">
+
+      <!-- Dark mode toggle (desktop only; mobile uses the contact panel toggle) -->
+      <div class="theme-toggle-wrapper theme-toggle-wrapper--header">
+        <label class="switch">
+          <input class="switch__input" type="checkbox" role="switch" name="dark" aria-label="Toggle dark mode" />
+          <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
+            <use href="#icon-sun" />
+          </svg>
+          <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
+            <use href="#icon-moon" />
+          </svg>
+          <span class="switch__inner"></span>
+          <span class="switch__inner-icons">
+            <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
+              <use href="#icon-sun" />
+            </svg>
+            <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
+              <use href="#icon-moon" />
+            </svg>
+          </span>
+          <span class="switch__sr">Dark Mode</span>
+        </label>
+      </div>
     </div>
   </div>
   <div class="header-spacer"></div>
@@ -399,6 +443,36 @@
       </a>
       {% endif %}
     </div>
+
+    <!-- Theme toggle inside the contact panel (mobile) -->
+    <div class="mobile-contact-divider"></div>
+    <div class="mobile-theme-row">
+      <svg class="contact-icon-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <use href="#icon-moon" />
+      </svg>
+      <span>Dark Mode</span>
+      <div class="theme-toggle-wrapper theme-toggle-wrapper--panel">
+        <label class="switch">
+          <input class="switch__input" type="checkbox" role="switch" name="dark" aria-label="Toggle dark mode" />
+          <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
+            <use href="#icon-sun" />
+          </svg>
+          <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
+            <use href="#icon-moon" />
+          </svg>
+          <span class="switch__inner"></span>
+          <span class="switch__inner-icons">
+            <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
+              <use href="#icon-sun" />
+            </svg>
+            <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
+              <use href="#icon-moon" />
+            </svg>
+          </span>
+          <span class="switch__sr">Dark Mode</span>
+        </label>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -433,6 +507,42 @@
         btn.setAttribute('aria-expanded', 'false');
       }
     });
+  })();
+  </script>
+
+  <!-- Dark mode toggle controller (syncs all toggles on page) -->
+  <script>
+  (function() {
+    var toggles = document.querySelectorAll('.switch__input[name="dark"]');
+    if (!toggles.length) return;
+
+    function applyTheme(theme, persist) {
+      document.documentElement.setAttribute('data-theme', theme);
+      toggles.forEach(function(t) { t.checked = (theme === 'dark'); });
+      if (persist) {
+        try { localStorage.setItem('theme', theme); } catch (e) {}
+      }
+    }
+
+    var initial = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    toggles.forEach(function(t) { t.checked = (initial === 'dark'); });
+
+    toggles.forEach(function(toggle) {
+      toggle.addEventListener('change', function() {
+        applyTheme(toggle.checked ? 'dark' : 'light', true);
+      });
+    });
+
+    // Follow system preference changes if user hasn't picked manually
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      var handler = function(e) {
+        try { if (localStorage.getItem('theme')) return; } catch (err) {}
+        applyTheme(e.matches ? 'dark' : 'light', false);
+      };
+      if (mq.addEventListener) mq.addEventListener('change', handler);
+      else if (mq.addListener) mq.addListener(handler);
+    }
   })();
   </script>
 </body>

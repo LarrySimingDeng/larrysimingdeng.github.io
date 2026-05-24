@@ -45,6 +45,17 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous" />
 
+<!-- Theme: applied before stylesheets to prevent FOUC -->
+<script>
+(function() {
+  try {
+    var stored = localStorage.getItem('theme');
+    var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+})();
+</script>
+
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
 

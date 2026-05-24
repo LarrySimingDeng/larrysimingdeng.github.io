@@ -110,7 +110,14 @@ I am a graduate student in the Department of [Electrical and Systems Engineering
       });
     }, { rootMargin: '0px 0px -15% 0px' });
 
-    items.forEach(function(item) { observer.observe(item); });
+    items.forEach(function(item, idx) {
+      if (idx < 3) {
+        // Reveal first 3 immediately on load (still gets the stagger transition)
+        item.classList.add('in-view');
+      } else {
+        observer.observe(item);
+      }
+    });
   } else {
     items.forEach(function(item) { item.classList.add('in-view'); });
   }
