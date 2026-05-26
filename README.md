@@ -1,24 +1,83 @@
-# GuangLun2000.github.io
+# larrysimingdeng.github.io
 
-GuangLun (光轮) means Nimbus in Chinese ✨
+This is the source repository for the personal academic website of **Siming Deng (Larry Deng)** — graduate student at the [Department of Electrical and Systems Engineering](https://www.ese.upenn.edu/) at [Penn Engineering](https://www.seas.upenn.edu/), University of Pennsylvania.
 
-Here is **Hanlin Cai (Lance, 蔡汉霖)**. This is the repository for my personal website.
+🔗 **Live site:** [https://larrysimingdeng.github.io](https://larrysimingdeng.github.io)
 
-## Update and News
+## About
 
-- **Sep 2024:** This Github Page has reached **500+ Stars**🌟 Thank you so much!
-- **May 2023:** [Jekyll website building videos](https://www.bilibili.com/video/BV1ja4y1G7tX/) have been uploaded to Bilibili (小白建站视频)
-- **April 2023:** [Website building tutorials](https://caihanlin.com/blogs/web/) have been post on my blog (建站完全指南)
-- **Dec. 2022:** My personal website have been implemented in [caihanlin.com](https://caihanlin.com)
-- **Oct. 2022:** This Github Page have been built based on [Jason Ansel's site](https://github.com/jansel/jansel.github.io).
+The site showcases my academic profile, research, and professional journey, including:
 
-## Star History
+- **About Me** — background, work experience timeline, and current research focus
+- **Publications** — peer-reviewed papers in *Communications in Statistics*, *Statistical Analysis and Data Mining*, and related venues
+- **Beyond Research** — hobbies and life outside the lab
+- **News & Updates** — milestones, paper acceptances, and offers
 
-**If you like it, please STAR it! 🥰**
+### Research Interests
+- Machine Learning
+- Nonparametric Statistics
+- Distortion Measurement Error Models
+- Large Sample Theory
 
-[![Star History Chart](https://api.star-history.com/svg?repos=GuangLun2000/GuangLun2000.github.io&type=Date)](https://star-history.com/#GuangLun2000/GuangLun2000.github.io&Date)
+## Tech Stack
 
-## Statement
+- **[Jekyll](https://jekyllrb.com/)** — static site generator
+- **[GitHub Pages](https://pages.github.com/)** — hosting
+- **[Minimal Mistakes](https://mademistakes.com/)** — base theme
+- Custom HTML/CSS/JS for the interactive timeline, publication cards, and news grid
 
-© 2024 Hanlin Cai. Published with [GitHub Pages](https://pages.github.com/), powered by [Jekyll](https://jekyllrb.com/), based on the [Minimal Mistakes](https://mademistakes.com/) theme and [Jason Ansel's site](https://github.com/jansel/jansel.github.io). Source code for this website can be found [here](https://github.com/GuangLun2000/GuangLun2000.github.io).
+## Running Locally
 
+Requirements: Ruby (see `.ruby-version`) and Bundler.
+
+```bash
+# Install dependencies
+bundle install
+
+# Serve the site locally
+bundle exec jekyll serve
+
+# Open http://localhost:4000 in your browser
+```
+
+Before serving locally, you may want to comment out the `url:` field in `_config.yml` so that base URLs resolve correctly.
+
+## Project Structure
+
+```
+.
+├── _config.yml          # Site configuration (title, owner, nav links)
+├── _includes/           # Reusable HTML partials
+├── _layouts/            # Page layout templates
+├── assets/              # CSS, JS, fonts
+├── images/              # Logos, paper thumbnails, photos
+├── blogs/               # Blog posts
+├── mypaper/             # Paper-related assets
+├── index.md             # Home / About Me
+├── publications.md      # Publications page
+├── hobbies.md           # Beyond Research page
+├── awards.md            # Awards page
+└── README.md
+```
+
+## Contact
+
+If you are interested in my work or would like to collaborate, feel free to reach out:
+
+- 📧 Email: `siming_deng_stat [at] 163.com`
+- 🎓 [Google Scholar](https://scholar.google.com/citations?hl=en&user=aKyLtgsAAAAJ)
+- 🔬 [ResearchGate](https://www.researchgate.net/profile/Siming-Deng-3)
+- 💼 [LinkedIn](https://www.linkedin.com/in/larry-deng-317b92360)
+- 🐙 [GitHub](https://github.com/LarrySimingDeng)
+
+## Acknowledgements
+
+This site is built on top of the wonderful work of:
+
+- [GuangLun2000 / Hanlin Cai](https://github.com/GuangLun2000/GuangLun2000.github.io) — for the original template this site is forked from
+- [Jason Ansel](https://github.com/jansel/jansel.github.io) — for the underlying website framework
+- [Minimal Mistakes](https://mademistakes.com/) — for the Jekyll theme
+
+## License
+
+Released under the [MIT License](LICENSE). Content (text, images, publication thumbnails) © Siming Deng. If you reuse the site structure for your own personal page, please keep attribution to the upstream projects above.
