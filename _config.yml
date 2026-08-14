@@ -1,6 +1,9 @@
 title: Siming Deng
 # Comment out url when working locally to resolve base urls correctly
-url: https://larrysimingdeng.github.io/
+url: https://larrysimingdeng.github.io
+
+# Default social-share preview image (Open Graph / Twitter card). Lives in /images/.
+og_image: og-cover.jpg
 
 # Owner/author information
 owner:
