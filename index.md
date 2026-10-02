@@ -263,7 +263,7 @@ If you are interested in any aspect of me, I am always open to discussions and c
 ## Research Interests
 
 - ML Systems & AI Infrastructure
-- Efficient & On-Device Inference (Apple MLX, SGLang)
+- Efficient & On-Device Inference (Apple MLX, [SGLang](https://github.com/sgl-project/sglang)<a class="sgl-badge" href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener noreferrer" aria-label="SGLang on GitHub (opens in a new tab)" title="SGLang on GitHub"><img src="/images/sglang-mark.svg" alt="SGLang logo" width="22" height="25" loading="lazy"></a>)
 - Agentic AI (multi-agent orchestration & tool use)
 - Machine Learning
 - Nonparametric Statistics

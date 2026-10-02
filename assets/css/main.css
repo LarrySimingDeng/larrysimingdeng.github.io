@@ -5067,6 +5067,41 @@ hr {
   }
 }
 
+/* --- SGLang repo badge: inline clickable logo in Research Interests ---
+   Brand-coloured emblem (official logo_square.svg), so it reads on both
+   light and dark themes without a theme-specific override. */
+.sgl-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: -0.32em;          /* ride the text baseline next to "SGLang" */
+  margin-left: 0.3em;
+  line-height: 0;
+  /* Kill the Penn-blue prose-link underline inherited from `.article-wrap li > a`
+     (higher specificity than a bare `.sgl-badge`, hence !important) — it rendered
+     as a grey edge under the icon. The text link keeps its underline; this is icon-only. */
+  border: 0 !important;
+  border-radius: 7px;
+  transition: transform 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.sgl-badge img {
+  height: 1.4em;
+  width: auto;
+  display: block;
+}
+/* Clean lift on hover — no blurred drop-shadow (its halo read as a stray
+   panel behind the emblem), and keep the `li > a:hover` underline off. */
+.sgl-badge:hover,
+.sgl-badge:focus-visible {
+  border: 0 !important;
+  transform: translateY(-1px) scale(1.12);
+}
+.sgl-badge:focus-visible {
+  outline: 2px solid #d55816;
+  outline-offset: 3px;
+}
+
 /* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
   .milestone-gallery .mtile--link,
@@ -5078,6 +5113,13 @@ hr {
     transform: none;
   }
   .milestone-gallery .mtile--link:hover > img {
+    transform: none;
+  }
+  .sgl-badge {
+    transition: none;
+  }
+  .sgl-badge:hover,
+  .sgl-badge:focus-visible {
     transform: none;
   }
 }
