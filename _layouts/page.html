@@ -737,35 +737,50 @@
   })();
   </script>
 
-  <!-- Dark mode toggle controller (syncs all toggles on page) -->
+  <!-- Dark mode toggle controller (syncs all toggles on page).
+       Default: follow the OS theme. A manual toggle is remembered across
+       refreshes, but once the OS theme itself changes the site follows the
+       OS again and the remembered choice is dropped. -->
   <script>
   (function() {
     var toggles = document.querySelectorAll('.switch__input[name="dark"]');
     if (!toggles.length) return;
 
-    function applyTheme(theme, persist) {
-      document.documentElement.setAttribute('data-theme', theme);
-      toggles.forEach(function(t) { t.checked = (theme === 'dark'); });
-      if (persist) {
-        try { localStorage.setItem('theme', theme); } catch (e) {}
-      }
+    function osTheme() {
+      return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
     }
 
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      toggles.forEach(function(t) { t.checked = (theme === 'dark'); });
+    }
+
+    // Sync the toggle UI with whatever the FOUC script already resolved.
     var initial = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     toggles.forEach(function(t) { t.checked = (initial === 'dark'); });
 
+    // Manual toggle: remember the choice against the OS theme it was made under.
+    // (If the choice matches the OS, store nothing — there's nothing to override.)
     toggles.forEach(function(toggle) {
       toggle.addEventListener('change', function() {
-        applyTheme(toggle.checked ? 'dark' : 'light', true);
+        var theme = toggle.checked ? 'dark' : 'light';
+        applyTheme(theme);
+        try {
+          if (theme === osTheme()) {
+            localStorage.removeItem('theme');
+          } else {
+            localStorage.setItem('theme', JSON.stringify({ choice: theme, os: osTheme() }));
+          }
+        } catch (e) {}
       });
     });
 
-    // Follow system preference changes if user hasn't picked manually
+    // When the OS theme changes, follow it and drop any remembered choice.
     if (window.matchMedia) {
       var mq = window.matchMedia('(prefers-color-scheme: dark)');
       var handler = function(e) {
-        try { if (localStorage.getItem('theme')) return; } catch (err) {}
-        applyTheme(e.matches ? 'dark' : 'light', false);
+        try { localStorage.removeItem('theme'); } catch (err) {}
+        applyTheme(e.matches ? 'dark' : 'light');
       };
       if (mq.addEventListener) mq.addEventListener('change', handler);
       else if (mq.addListener) mq.addListener(handler);

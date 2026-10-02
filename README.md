@@ -37,7 +37,7 @@ This repository contains the source of [larrysimingdeng.github.io](https://larry
 ## Design
 
 - **UPenn-style header.** Two-tier sticky header with a frosted-glass blur and an oversized Penn wordmark.
-- **Dark mode.** One-click toggle that follows the system preference and is remembered across visits.
+- **Dark mode.** Follows your system theme automatically. A manual toggle is remembered across visits, until you change your system theme — then the site tracks the OS again.
 - **Living timeline.** Entries light up as they scroll into view; the current role carries a Penn-red pulse.
 - **Scroll-reveal cards.** News and publication cards fade in as they enter the viewport.
 - **Deliberate typography.** System sans for display, PT Serif for long-form reading.

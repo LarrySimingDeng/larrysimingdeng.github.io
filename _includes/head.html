@@ -41,12 +41,27 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous" />
 
-<!-- Theme: applied before stylesheets to prevent FOUC -->
+<!-- Theme: applied before stylesheets to prevent FOUC.
+     Follows the OS theme by default. A manual toggle choice is remembered
+     across refreshes, but only while the OS theme is still what it was when
+     the choice was made — once you change your computer's theme, the site
+     follows the OS again. -->
 <script>
 (function() {
   try {
-    var stored = localStorage.getItem('theme');
-    var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var os = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    var theme = os;
+    var raw = localStorage.getItem('theme');
+    if (raw) {
+      var saved = null;
+      try { saved = JSON.parse(raw); } catch (e) {}
+      // Honor the manual choice only if the OS hasn't changed since it was made.
+      if (saved && saved.choice && saved.os === os) {
+        theme = saved.choice;
+      } else {
+        localStorage.removeItem('theme'); // stale override (OS changed) or old format
+      }
+    }
     document.documentElement.setAttribute('data-theme', theme);
   } catch (e) {}
 })();
