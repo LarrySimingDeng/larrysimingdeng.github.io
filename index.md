@@ -278,6 +278,44 @@ Previously, my research centered on **nonparametric statistics** and **measureme
 ## News and Updates
 
 <div class="news-grid">
+  <div class="news-card news-card--milestone news-card--feature">
+    <div class="news-meta">
+      <span class="news-date">September 2026</span>
+      <span class="news-tag news-tag--milestone">Milestone</span>
+    </div>
+    <p>Apple unveils <strong>iPhone 18 Pro</strong> &amp; <strong>iPhone 18 Pro Max</strong>. Proud to have contributed to the agentic hardware-testing tooling behind the launch.</p>
+
+    <div class="milestone-gallery">
+      <figure class="mtile">
+        <img src="/images/milestones/apple-iphone18.jpg" alt="Siming Deng with the iPhone 18 lineup on display at Apple" loading="lazy">
+      </figure>
+
+      <!-- iPhone 18 Pro cover: a baked snapshot of apple.com's Open Graph card, links to Apple -->
+      <a class="mtile mtile--link mtile--contain" href="https://www.apple.com/iphone-18-pro/" target="_blank" rel="noopener noreferrer" aria-label="iPhone 18 Pro and iPhone 18 Pro Max on apple.com (opens in a new tab)">
+        <img src="/images/milestones/iphone-18-pro-cover.png" alt="iPhone 18 Pro and iPhone 18 Pro Max" loading="lazy">
+        <span class="mtile__ext" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+        </span>
+        <span class="mtile__cap">
+          <span class="mtile__cap-title">iPhone 18 Pro</span>
+          <span class="mtile__cap-domain">apple.com</span>
+        </span>
+      </a>
+
+      <!-- iPhone Duo cover: a baked snapshot of apple.com's Open Graph card, links to Apple -->
+      <a class="mtile mtile--link" href="https://www.apple.com/iphone-duo/" target="_blank" rel="noopener noreferrer" aria-label="iPhone Duo on apple.com (opens in a new tab)">
+        <img src="/images/milestones/iphone-duo-cover.png" alt="iPhone Duo" loading="lazy">
+        <span class="mtile__ext" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+        </span>
+        <span class="mtile__cap">
+          <span class="mtile__cap-title">iPhone Duo</span>
+          <span class="mtile__cap-domain">apple.com</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
   <div class="news-card news-card--publication">
     <div class="news-meta">
       <span class="news-date">February 2026</span>
