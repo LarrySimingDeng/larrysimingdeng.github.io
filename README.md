@@ -102,6 +102,14 @@ Everything personal sits in a handful of files:
 | Photos and thumbnails | `images/` |
 | Colors, typography, animations | `assets/css/main.css` |
 
+### Analytics
+
+GoatCounter is configured under `goatcounter:` in `_config.yml`. The tracker loads only when the visitor's hostname exactly matches `goatcounter.hostname`; changing `url:` alone does not enable tracking on a fork or preview domain. Remove the `goatcounter:` section to disable analytics.
+
+When forking, set **both** `endpoint` and `hostname` to your own GoatCounter site and production hostname. Never keep the original endpoint while changing the hostname.
+
+If older forks already send traffic to your endpoint, create a new site in GoatCounter's **Settings → Sites**, then update `endpoint` here and deploy. Keep the old site for historical reference: this guard cannot update existing forks. GoatCounter [does not store the pageview's domain by default](https://www.goatcounter.com/help/domains), so historical visits sharing the same path cannot be accurately separated by domain.
+
 ## License
 
 Code is released under the [MIT License](LICENSE). Site content (text, photos and publication material) © Siming Deng.

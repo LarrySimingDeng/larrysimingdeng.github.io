@@ -2,6 +2,12 @@ title: Siming Deng
 # Comment out url when working locally to resolve base urls correctly
 url: https://larrysimingdeng.github.io
 
+# Keep this hostname separate from url so forks do not inherit live tracking.
+# When reusing this site, change BOTH values to your own GoatCounter site/domain.
+goatcounter:
+  endpoint: https://larrysimingdeng-main.goatcounter.com/count
+  hostname: larrysimingdeng.github.io
+
 # Default social-share preview image (Open Graph / Twitter card). Lives in /images/.
 og_image: og-cover.jpg
 

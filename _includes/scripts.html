@@ -2,4 +2,19 @@
 <script>window.jQuery || document.write('<script src="{{ site.url }}/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="{{ site.url }}/assets/js/main.min.js"></script>
 
-<script data-goatcounter="https://larrysimingdeng.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+{% assign analytics_endpoint = site.goatcounter.endpoint | default: '' %}
+{% assign analytics_hostname = site.goatcounter.hostname | default: '' %}
+{% if analytics_endpoint != '' and analytics_hostname != '' %}
+<script>
+(function () {
+  // Check the actual host, independently of site.url, before loading analytics.
+  if (window.location.hostname !== {{ analytics_hostname | jsonify }}) return;
+
+  var script = document.createElement('script');
+  script.setAttribute('data-goatcounter', {{ analytics_endpoint | jsonify }});
+  script.async = true;
+  script.src = 'https://gc.zgo.at/count.js';
+  document.head.appendChild(script);
+})();
+</script>
+{% endif %}
