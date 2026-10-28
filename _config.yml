@@ -5,7 +5,7 @@ url: https://larrysimingdeng.github.io
 # Keep this hostname separate from url so forks do not inherit live tracking.
 # When reusing this site, change BOTH values to your own GoatCounter site/domain.
 goatcounter:
-  endpoint: https://larrysimingdeng-main.goatcounter.com/count
+  endpoint: https://larrysimingdeng-clean.goatcounter.com/count
   hostname: larrysimingdeng.github.io
 
 # Default social-share preview image (Open Graph / Twitter card). Lives in /images/.
